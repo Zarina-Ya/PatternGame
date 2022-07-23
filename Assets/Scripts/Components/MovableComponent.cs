@@ -7,6 +7,6 @@ namespace ZarinkinProject
     {
         public float _moveSpeed;
         public bool _isMoving;
-
+        public Vector3 _moveDirection;
     }
 }

@@ -7,5 +7,6 @@ namespace ZarinkinProject
     {
         public float _health;
         public bool _isDead;
+        public float _maxHealth = 100;
     }
 }
