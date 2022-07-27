@@ -6,13 +6,24 @@ namespace ZarinkinProject
 {
    public class GameStarter : MonoBehaviour
    {
+        Enemy primitiveEnemy;
+        Enemy normalEnemy;
+        [SerializeField] Transform _target;
+        [SerializeField] float _minDistance;
+        [SerializeField] float _speed;
         private void Start()
         {
-            //EnemyBase.CreateEnemy(new Health(100.0f, 100.0f));
+            primitiveEnemy = new Enemy("TEstEnemy", new PrimitiveEnemyFactory());
+            normalEnemy = new Enemy("TEstNormalEnemy", new NormalEnemyFactory());
 
-            Enemy enemy = new Enemy("TEstEnemy", new PrimitiveEnemyFactory());
+            _target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         }
-    
 
-   }
+        private void Update()
+        {
+            normalEnemy.Move(_target, _minDistance, _speed);
+        }
+
+
+    }
 }
