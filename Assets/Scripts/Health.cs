@@ -15,7 +15,6 @@ namespace ZarinkinProject
         public void ChangeCurrentHealth(float hp)
         {
             Current = hp;
-
         }
     }
 }

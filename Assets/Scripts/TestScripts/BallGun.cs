@@ -22,6 +22,7 @@ namespace ZarinkinProject {
                 if (miss < _missChance)
                     return 0;
                 var dmg = Random.Range(_minDmg, _maxDmg);
+                Ammo--;
                 return dmg;
             }
             else return 0;
