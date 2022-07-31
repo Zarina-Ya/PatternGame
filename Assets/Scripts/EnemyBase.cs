@@ -12,7 +12,7 @@ namespace ZarinkinProject
             GameObject enemyPrefab = Object.Instantiate(Resources.Load<GameObject>("Enemy/PrimitiveEnemy"));
             if (enemyPrefab == null)
             {
-                Debug.Log("PPPPPPPPPPPP");
+                Debug.Log("Chego richish?");
                 return null;
             }
             var enemy = enemyPrefab.AddComponent<PrimitiveEnemy>();
