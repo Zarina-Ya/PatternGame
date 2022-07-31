@@ -7,12 +7,26 @@ namespace ZarinkinProject
 
         private IMove _moveTransform;
         private IRotation _rotation;
-     
+        private Health Health { get; set; }
         [SerializeField] private float _speed;
         [SerializeField] private float _turnSpeed;
-       
 
-     
+        private void Awake()
+        {
+            Health = new Health(100, 100);
+        }
+
+        public void TakeDamage(int damage)
+        {
+            if (Health.Current <= damage)
+                Destroy(gameObject);
+            else
+            {
+                Health.ChangeCurrentHealth((int)Health.Current - damage);
+                Debug.Log(Health.Current);
+            }
+        }
+
         private void Start()
         {
             _moveTransform = new MoveTransform(transform, _speed, GetComponent<Rigidbody>(), GetComponent<Animator>());
