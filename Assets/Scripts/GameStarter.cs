@@ -12,6 +12,9 @@ namespace ZarinkinProject
         private Player _player;
         [SerializeField] float _minDistance;
         [SerializeField] float _speed;
+        [SerializeField] GameObject _bullet;
+
+
 
         bool canShoot = true;
         private void Start()
@@ -21,6 +24,10 @@ namespace ZarinkinProject
 
             _targetTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
             _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+            ViewService viewService = new ViewService();
+           var test = viewService.Instantiate<Rigidbody>(_bullet);
+            test.transform.position = Vector3.zero;
         }
 
         private void Update()
