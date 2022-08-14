@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace ZarinkinProject
 {
+    [System.Serializable]
     public class Health : MonoBehaviour
     {
         public float Max { get; }
