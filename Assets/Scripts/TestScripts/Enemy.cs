@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 namespace ZarinkinProject {
+
+    [System.Serializable]
     public class Enemy 
     {
         public string Name { get; private set; }

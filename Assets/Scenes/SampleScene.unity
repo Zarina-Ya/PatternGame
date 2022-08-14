@@ -378,6 +378,8 @@ MonoBehaviour:
   _minDistance: 2
   _speed: 2
   _bullet: {fileID: 2931654194479890126, guid: 8fb97e2763f16af479314886ec485a4b, type: 3}
+  _mesh: {fileID: 4300000, guid: c3686f0362ff5274f98a3f2baf781da8, type: 3}
+  _material: {fileID: 2100000, guid: f323cced30244554986ee5e9f5dd8b67, type: 2}
 --- !u!4 &1363707620
 Transform:
   m_ObjectHideFlags: 0

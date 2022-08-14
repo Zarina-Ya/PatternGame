@@ -13,21 +13,52 @@ namespace ZarinkinProject
         [SerializeField] float _minDistance;
         [SerializeField] float _speed;
         [SerializeField] GameObject _bullet;
-
+        [SerializeField] Mesh _mesh;
+        [SerializeField] Material _material;
 
 
         bool canShoot = true;
+
+        private void Awake()
+        {
+            var gameObjectBuilder = new GameObjectBuilder();
+            GameObject bullet =
+            gameObjectBuilder.Visual.Name("bulletBuilder").MeshFilter(_mesh).MeshRenderer(_material).Physics.Rigidbody(5).MeshCollider();
+
+            ServiceLocator.SetService(new ObjectPool(bullet));
+
+            Destroy(bullet);
+        }
         private void Start()
         {
             primitiveEnemy = new Enemy("TEstEnemy", new PrimitiveEnemyFactory());
             normalEnemy = new Enemy("TEstNormalEnemy", new NormalEnemyFactory());
 
+
+            
+
+
             _targetTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
             _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
+              //CreateBulletViewService();
+        
+
+                TestCreateObjectPoolLocator();
+
+
+        }
+
+
+        private void CreateBulletViewService()
+        {
             ViewService viewService = new ViewService();
-           var test = viewService.Instantiate<Rigidbody>(_bullet);
+            var test = viewService.Instantiate<Rigidbody>(_bullet);
             test.transform.position = Vector3.zero;
+        }
+        private void TestCreateObjectPoolLocator()
+        {
+            ServiceLocator.Resolve<ObjectPool>().Pop().transform.position = Vector3.zero;
         }
 
         private void Update()
@@ -46,6 +77,7 @@ namespace ZarinkinProject
              
             }
         }
+
 
         private void Reloading()
         {
