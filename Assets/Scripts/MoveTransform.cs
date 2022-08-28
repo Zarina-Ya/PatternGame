@@ -18,7 +18,7 @@ namespace ZarinkinProject
                 animator;
         }
 
-        public float Speed { get; protected set; }
+        public float Speed { get;  set; }
 
 
     //public void Rotate(float horizontal, float vertical)
@@ -30,9 +30,20 @@ namespace ZarinkinProject
         public void Move(float vertical)
         {
             var speed = Speed;
+            Debug.Log(speed);
             _move = _transform.forward * vertical;
             _rigidbody.AddForce(_move * speed * 10, ForceMode.Acceleration);
             _animator.SetBool("AnimationWalk", _move != Vector3.zero);
+        }
+    }
+
+    public sealed class MoveTest : IMove
+    {
+        public float Speed { get;  set; }
+
+        public void Move(float vertical)
+        {
+            Debug.Log("ָהול");
         }
     }
 }
