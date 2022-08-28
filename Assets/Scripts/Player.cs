@@ -8,7 +8,7 @@ namespace ZarinkinProject
         protected IMove _moveTransform;
         protected IRotation _rotation;
 
-        private Health health = new Health(100, 100);
+        private Health health /*= new Health(100, 100)*/;
 
         [SerializeField] private float _speed;
         [SerializeField] protected float _turnSpeed;
@@ -17,7 +17,7 @@ namespace ZarinkinProject
         [SerializeField] private float _maxEndurance = 50;
         [SerializeField] private float _speedWalk = 50;
         private bool _isRunning = false;
-        protected Health Health { get => health; set => health = value; }
+        public Health Health { get => health; set => health = value; }
         public float Speed { get => _speed; set => _speed = value; }
         public bool IsRunning { get => _isRunning; set => _isRunning = value; }
         public float Endurance { get => _endurance; set => _endurance = value; }
@@ -25,10 +25,26 @@ namespace ZarinkinProject
         public float RunnigSpeed { get => _runnigSpeed; }
         public float SpeedWalk { get => _speedWalk;}
 
+    
         private Controller move;
         private void Awake()
         {
            // Health = new Health(100, 100);
+        }
+
+        public bool IsFullHealth()
+        {
+            return health.Current == health.Max;
+        }
+
+        public bool IsDead()
+        {
+            return health.Current <= 0;
+        }
+
+        public bool IsAlive()
+        {
+            return !IsDead();
         }
 
         public void TakeDamage(int damage)
