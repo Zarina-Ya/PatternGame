@@ -22,8 +22,8 @@ namespace ZarinkinProject
         public bool IsRunning { get => _isRunning; set => _isRunning = value; }
         public float Endurance { get => _endurance; set => _endurance = value; }
         public float MaxEndurance { get => _maxEndurance; set => _maxEndurance = value; }
-        public float RunnigSpeed { get => _runnigSpeed; }
-        public float SpeedWalk { get => _speedWalk;}
+        public float RunnigSpeed { get => _runnigSpeed; set => _runnigSpeed = value; }//!!
+        public float SpeedWalk { get => _speedWalk; set => _speedWalk = value; }//!!
 
     
         private Controller move;

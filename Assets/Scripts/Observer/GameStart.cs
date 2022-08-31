@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 namespace ZarinkinProject {
-    public class GameStart : MonoBehaviour
+    public class StartGameState : MonoBehaviour
     {
         [SerializeField] private List<GameObject> _subjects = new List<GameObject>();
         [SerializeField] private GameObject _observer;
