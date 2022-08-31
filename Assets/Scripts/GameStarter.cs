@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 namespace ZarinkinProject
@@ -21,31 +22,33 @@ namespace ZarinkinProject
 
         private void Awake()
         {
-            var gameObjectBuilder = new GameObjectBuilder();
-            GameObject bullet =
-            gameObjectBuilder.Visual.Name("bulletBuilder").MeshFilter(_mesh).MeshRenderer(_material).Physics.Rigidbody(5).MeshCollider();
+            //var gameObjectBuilder = new GameObjectBuilder();
+            //GameObject bullet =
+            //gameObjectBuilder.Visual.Name("bulletBuilder").MeshFilter(_mesh).MeshRenderer(_material).Physics.Rigidbody(5).MeshCollider();
 
-            ServiceLocator.SetService(new ObjectPool(bullet));
+            //ServiceLocator.SetService(new ObjectPool(bullet));
 
-            Destroy(bullet);
+            //Destroy(bullet);
         }
         private void Start()
         {
-            primitiveEnemy = new Enemy("TEstEnemy", new PrimitiveEnemyFactory());
-            normalEnemy = new Enemy("TEstNormalEnemy", new NormalEnemyFactory());
+            //primitiveEnemy = new Enemy("TEstEnemy", new PrimitiveEnemyFactory());
+            //normalEnemy = new Enemy("TEstNormalEnemy", new NormalEnemyFactory());
 
 
-            
 
 
-            _targetTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-            _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
-              //CreateBulletViewService();
-        
+            //_targetTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+            //_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
-                TestCreateObjectPoolLocator();
+            //  //CreateBulletViewService();
 
+
+            //    TestCreateObjectPoolLocator();
+
+            ParseJson parseJson = new ParseJson(Path.Combine(Application.dataPath + "/", "Scripts/Parse/uitInfo.json"));
+            parseJson.GetPlayers();
 
         }
 
